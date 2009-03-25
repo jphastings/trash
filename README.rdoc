@@ -1,22 +1,33 @@
 = Trash
 
-This File class addon allows you to trash a file in your operating system of choice. In Mac OS X its as simple as putting the file in that's volume's .Trash directory, on Windows the Recycle Bin needs to be altered as the files are being trashed.
+This File class addon allows you to trash a file in your operating system of choice. In Mac OS X its as simple as putting the file in that volume's .Trash directory, on Windows the Recycle Bin needs to be altered as the files are being trashed.
 
-== Use
+== Usage
 
 Usage is simple:
   File.trash("path/to/file")
 
 The path is parsed by File.expand_path(), so relative directories are dealt with.
 
-==== Supported Operating Systems
+=== Supported Operating Systems
 * Mac OS X - All Darwin based OSes
-* - Windows coming soon
+* Windows - see below
 * - Other OSes?
+
+==== Mac OS X
+Complete and tested (though not examined fully)
+
+==== Windows
+Bugs all over the place!
+* For some reason the final command that moves the file to the Recycler/Recycled folder is being rejected with a permissions error, despite the exact same command being executable elsewhere (in string form). I'll look into this more later, but Windows support is suspended for now (#NotImplementedError)
+
+* In addition to this if I move the file manually, Windows doesn't seem to notice the update. Maybe a system call is needed to update windows?
+
+Long and short of it is that this part just isn't working! Let me know if you can see any mistakes :P
 
 == Source
 
-The source is available on github, 
+The source is available on github at http://github.com/jphastings/trash/
 
 == Contact
 
